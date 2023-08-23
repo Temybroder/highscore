@@ -1,11 +1,11 @@
 {
-  "name": "new-high-note",
+  "name": "highscore",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +23,7 @@
     "mongoose": "^7.4.3",
     "node-cron": "^3.0.2",
     "node-fetch": "^3.3.1",
+    "nodemon": "^3.0.1",
     "open": "^9.1.0",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
