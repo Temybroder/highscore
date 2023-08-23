@@ -1,0 +1,33 @@
+{
+  "name": "new-high-note",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "fs-extra": "^11.1.1",
+    "mongoose": "^7.4.3",
+    "node-cron": "^3.0.2",
+    "node-fetch": "^3.3.1",
+    "open": "^9.1.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "pidusage": "^3.0.2",
+    "socket.io": "^4.7.1",
+    "sound-play": "^1.1.0"
+  }
+}

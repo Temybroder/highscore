@@ -1,0 +1,7 @@
+{
+    "watch" : [
+        "sdk/",
+        "createdVDServers/"
+    ],
+    "ext" : "js"
+}
