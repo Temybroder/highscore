@@ -11,10 +11,6 @@ const open = ( ...args) => {
 const expressLayouts = require('express-ejs-layouts');
 const flash = require('connect-flash');
 
-//const { forwardAuthenticated } = require('./config/auth');
-
-let testRun = require("./test/index")
-
 
 var starter = {}
 starter.init = () => {
@@ -78,7 +74,7 @@ const PORT = 3000;
 
 app.listen(PORT, () => {
   console.log('STARTING UP MOTHER SERVER');
-     console.log(\`Express Server started on port ${PORT}. Databases Started and Connected`)
+     console.log(`Express Server started on port ${PORT}. Databases Started and Connected`)
       }
   );
 }
