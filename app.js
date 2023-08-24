@@ -3,7 +3,6 @@ const app = express();
 const mongoose = require('mongoose');
 const passport = require('passport');
 const session = require('express-session');
-const os = require('os');
 const path = require("path");
 const open = ( ...args) => {
   import('open').then(({ default: open }) => open(...args)); 
@@ -78,8 +77,8 @@ app.use('/', require('./routes/index'));
 const PORT = 3000;
 
 app.listen(PORT, () => {
-  console.log('\x1b[34m%s\x1b[1m','STARTING UP MOTHER SERVER');
-     console.log('\x1b[35m%s\x1b[1m',`Express Server on process ${process.pid}, started on port ${PORT}. Databases Started and Connected`)
+  console.log('STARTING UP MOTHER SERVER');
+     console.log(\`Express Server started on port ${PORT}. Databases Started and Connected`)
       }
   );
 }
