@@ -76,7 +76,7 @@ app.use(function(req, res, next) {
 // Routes
 app.use('/', require('./routes/index'));
 
-const PORT = process.env.PORT || 7000;
+const PORT = 3000;
 
 app.listen(PORT, () => {
   console.log('\x1b[34m%s\x1b[1m','STARTING UP MOTHER SERVER');
