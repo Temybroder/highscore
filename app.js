@@ -11,10 +11,6 @@ const open = ( ...args) => {
 const expressLayouts = require('express-ejs-layouts');
 const flash = require('connect-flash');
 
-
-var starter = {}
-starter.init = () => {
-
 // EJS
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
@@ -73,12 +69,8 @@ app.use('/', require('./routes/index'));
 const PORT = 3000;
 
 app.listen(PORT, () => {
-  console.log('STARTING UP MOTHER SERVER');
      console.log(`Express Server started on port ${PORT}. Databases Started and Connected`)
       }
   );
 }
 
-module.exports = {
-  starter : starter
-};
