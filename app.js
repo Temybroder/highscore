@@ -5,7 +5,6 @@ const passport = require('passport');
 const session = require('express-session');
 const os = require('os');
 const path = require("path");
-require("dotenv").config();
 const open = ( ...args) => {
   import('open').then(({ default: open }) => open(...args)); 
 }   
