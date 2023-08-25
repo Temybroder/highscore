@@ -11,56 +11,8 @@ const open = ( ...args) => {
 const expressLayouts = require('express-ejs-layouts');
 const flash = require('connect-flash');
 
-// EJS
-app.use(expressLayouts);
-app.set('view engine', 'ejs');
-app.use(express.static('./public'));
-app.set('views', path.join(__dirname, './public/views'));
 
-// MASTER DATABASE CONNECTION
-const dbs = require('./vars/db')
-const dbMain = dbs.mongoURI
 
-// Connect to MongoDB
-mongoose
-  .connect(
-    dbMain,
-    { useNewUrlParser: true,
-      useUnifiedTopology: true
-    }
-  ).then(() => console.log('MongoDB :::=> Database Connected Successfully')).catch(err => console.log(err));
-
-// Express session
-app.use(
-    session({
-      secret: 'ht*rwek343[pw39u4231',
-      resave: true,
-      saveUninitialized: true,
-      // store: 
-     })
-   );
-  
-
-// Passport Config
-//require('./config/passport')(passport);
-
-// Express body parser
-app.use(express.urlencoded({ extended: true }));
- 
-// // Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
-
-// Connect flash
-app.use(flash());
-
-// Global variables
-app.use(function(req, res, next) {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  next();
-});
 
 // Routes
 app.use('/', require('./routes/index'));
