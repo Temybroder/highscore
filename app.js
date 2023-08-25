@@ -17,8 +17,18 @@ app.use(express.static('./public'));
 app.set('views', path.join(__dirname, './public/views'));
 
 
+// MASTER DATABASE CONNECTION
+const dbs = require('./vars/db')
+const dbMain = dbs.mongoURI
 
-
+// Connect to MongoDB
+mongoose
+  .connect(
+    dbMain,
+    { useNewUrlParser: true,
+      useUnifiedTopology: true
+    }
+  ).then(() => console.log('MongoDB :::=> Database Connected Successfully')).catch(err => console.log(err));
 
 // Express session
 app.use(
