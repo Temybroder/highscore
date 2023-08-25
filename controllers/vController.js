@@ -15,6 +15,10 @@ const spinUp = async (req, res) => {
     try {
      const {platform, mediaurl, vdnumber} = req.body;
      let errors = [];
+      let user = {
+      name: "Sammie",
+      email: "sammie@gmail.com"
+  }
      if (vdnumber > 5){
       errors.push({msg: "Choose number of VDs less than 6"})
      }
@@ -25,7 +29,7 @@ const spinUp = async (req, res) => {
           platform,
           mediaurl,
           vdnumber,
-          user: req.user
+          user: user
         });
     } else {
      helpLib.helpers.checkMediaUrl(mediaurl)
