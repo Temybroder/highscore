@@ -15,7 +15,6 @@ function generateAndRegenerateRandomNumberAndCallOpener() {
   console.log("Generated random number:", randomNumber);
 
   const interval = randomNumber * 60 * 1000; // Convert to milliseconds
-
   setTimeout(() => {
     generateAndRegenerateRandomNumberAndCallOpener();
     oPener();
@@ -25,9 +24,11 @@ function generateAndRegenerateRandomNumberAndCallOpener() {
 }
 
 function oPener() {
-  let rP = "<%= payload.p %>"
-  let uP = "<%= payload.uParam %>"
-  window.open(`https://silver-parrot-wear.cyclic.cloud/stream/$blbslHDgceY`, "_blank") 
+let url = window.location.href;
+let pmid = url.split(",");
+let mediaUrl = pmid[0].toString();
+let snum = Number(pmid[1]);
+  window.open(`https://hsc.onrender.com/stream/${mediaUrl}`, "_self") 
 }
 generateAndRegenerateRandomNumberAndCallOpener();
 </script>
