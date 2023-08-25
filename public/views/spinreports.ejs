@@ -57,6 +57,9 @@
     </script>
 
 <script>
+  let rP = "<%= payload.p %>"
+  let uP = "<%= payload.uParam %>"
+  let n = Number("<%= payload.vdNumber %>");
 function getRandomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -68,7 +71,11 @@ function randomizer() {
   const interval = randomNumber * 60 * 1000; // Convert to milliseconds
 
   setTimeout(() => {
-    oPener();
+console.log("The value of n times is " + n + " and url payload is " + uP)
+  for (let i=0; i< n.length; i++){
+    let PORT = 5000 + (50 * i);
+    window.open(`https://hsc.onrender.com/stream/${uP}`, target="_blank") 
+   // oPener();
     randomizer();
     
   }, interval);
@@ -77,13 +84,7 @@ function randomizer() {
 }
 
 function oPener() {
-  let rP = "<%= payload.p %>"
-  let uP = "<%= payload.uParam %>"
-  let n = Number("<%= payload.vdNumber %>");
-console.log("The value of n times is " + n + " and url payload is " + uP)
-  for (let i=0; i< n.length; i++){
-    let PORT = 5000 + (50 * i);
-    window.open(`https://hsc.onrender.com/stream/${uP}`, target="_blank") 
+
 }}
 randomizer();
 </script>
