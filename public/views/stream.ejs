@@ -16,8 +16,8 @@ function generateAndRegenerateRandomNumberAndCallOpener() {
 
   const interval = randomNumber * 60 * 1000; // Convert to milliseconds
   setTimeout(() => {
+  oPener();
     generateAndRegenerateRandomNumberAndCallOpener();
-    oPener();
   }, interval);
   
   return randomNumber;
