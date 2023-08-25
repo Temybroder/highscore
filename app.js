@@ -23,5 +23,3 @@ app.listen(PORT, () => {
      console.log(`Express Server started on port ${PORT}. Databases Started and Connected`)
       }
   );
-}
-
