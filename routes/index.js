@@ -84,7 +84,7 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
 router.post('/spinup', ensureAuthenticated, spinUp);
 
 // Intermediate page after Spinning VDs
-router.get('/mid/:combinedParams', async (req, res) => {
+router.get('/mid/:combinedParams', ensureAuthenticated, async (req, res) => {
    let splitParams = req.params.combinedParams.split(".");
    let payload = {
       pl: splitParams[0],
@@ -98,7 +98,7 @@ router.get('/mid/:combinedParams', async (req, res) => {
     res.render('stream-mid', {
       combinedParams: splitParams,
       payload: payload, 
-      user: user
+      user: req.user
     });
 });
 
