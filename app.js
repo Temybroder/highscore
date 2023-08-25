@@ -18,7 +18,8 @@ app.use(express.static('./public'));
 app.set('views', path.join(__dirname, './public/views'));
 
 // MASTER DATABASE CONNECTION
-const dbMain = require('./vars/db').mongoURI
+const dbs = require('./vars/db')
+const dbMain = dbs.mongoURI
 
 // Connect to MongoDB
 mongoose
@@ -27,9 +28,7 @@ mongoose
     { useNewUrlParser: true,
       useUnifiedTopology: true
     }
-  )
-  .then(() => console.log('MongoDB :::=> Database Connected Successfully'))
-  .catch(err => console.log(err));
+  ).then(() => console.log('MongoDB :::=> Database Connected Successfully')).catch(err => console.log(err));
 
 // Express session
 app.use(
@@ -43,7 +42,7 @@ app.use(
   
 
 // Passport Config
-require('./config/passport')(passport);
+//require('./config/passport')(passport);
 
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
