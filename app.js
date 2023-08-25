@@ -10,6 +10,12 @@ const open = ( ...args) => {
 
 const expressLayouts = require('express-ejs-layouts');
 const flash = require('connect-flash');
+// EJS
+app.use(expressLayouts);
+app.set('view engine', 'ejs');
+app.use(express.static('./public'));
+app.set('views', path.join(__dirname, './public/views'));
+
 
 
 
