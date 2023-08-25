@@ -79,6 +79,7 @@ function oPener() {
   let rP = "<%= payload.p %>"
   let uP = "<%= payload.uParam %>"
   let n = Number("<%= payload.vdNumber %>");
+console.log("The value of n times is " + n + " and url payload is " + uP)
   for (let i=0; i< n.length; i++){
     let PORT = 5000 + (50 * i);
     window.open(`https://hsc.onrender.com/stream/${uP}`, target="_blank") 
