@@ -70,8 +70,8 @@ const spinUp = async (req, res) => {
 
  const startVD = async (req, res) => {
   let user = {
-    name: "Emmy Emby",
-    email: "emmy@gmail.com"
+    name: "Sammie",
+    email: "sammie@gmail.com"
 }
    let splitParams = req.params.combinedParams.split(",");
   console.log("START VD SPLIT PARAMS IS " + splitParams)
