@@ -81,10 +81,10 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
     res.render('dashboard', {user: req.user});
 });
 
-router.post('/spinup', ensureAuthenticated, spinUp);
+router.post('/spinup', spinUp);
 
 // Intermediate page after Spinning VDs
-router.get('/mid/:combinedParams', ensureAuthenticated, async (req, res) => {
+router.get('/mid/:combinedParams', async (req, res) => {
    let splitParams = req.params.combinedParams.split(".");
    let payload = {
       pl: splitParams[0],
@@ -98,7 +98,7 @@ router.get('/mid/:combinedParams', ensureAuthenticated, async (req, res) => {
     res.render('stream-mid', {
       combinedParams: splitParams,
       payload: payload, 
-      user: req.user
+      user: user
     });
 });
 
@@ -140,7 +140,7 @@ router.get('/report/:combinedParams', (req, res) => {
   let medredirecturl = splitParams[1].substring(2);
   let vdnumber = splitParams[2]
   let user = {
-    name: "Sammie Sammie",
+    name: "Sammie",
     email: "sammie@gmail.com"
 }
 let payload = {
