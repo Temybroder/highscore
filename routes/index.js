@@ -23,6 +23,12 @@ let baseDir = path.join(__dirname,'/../');
 
 //ROUTES
 router.get('/', (req, res) => {
+ res.send("Wlecome to HighScore root api")
+});
+
+
+
+router.get('/ab', (req, res) => {
  
     res.render('welcome', {a : 7000});
 });
