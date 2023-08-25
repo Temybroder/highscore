@@ -68,8 +68,9 @@ function randomizer() {
   const interval = randomNumber * 60 * 1000; // Convert to milliseconds
 
   setTimeout(() => {
-    randomizer();
     oPener();
+    randomizer();
+    
   }, interval);
   
   return randomNumber;
