@@ -172,13 +172,13 @@ serverWriter.createVDServers = async (platform, mediaurl, num_of_servers) => {
                         setTimeout(() => {  \r\n
                             let urlParam = "blbslHDgceY" + "," + "5000" + "," + randomNumber.toString()    \r\n
 
-                            open('http://localhost:5000/stream/blbslHDgceY,1', {app: {name: 'firefox'}});   \r\n
+                            open('https://silver-parrot-wear.cyclic.cloud/stream/blbslHDgceY,1', {app: {name: 'firefox'}});   \r\n
                         }, delayInMilliseconds);  \r\n
                       }  \r\n
                       
                       function urlOpen() {  \r\n
                         let urlParam = "${finalUrl}" + "," + "${PORT}" + "," + randomNumber.toString()   \r\n
-                        open('http://localhost:${PORT}/stream/${urlParam}', {app: {name: 'firefox'}});  \r\n
+                        open('https://silver-parrot-wear.cyclic.cloud/stream/${urlParam}', {app: {name: 'firefox'}});  \r\n
                       }  \r\n
                       
                       callUrlOpenAfterRandomDelay();  \r\n
