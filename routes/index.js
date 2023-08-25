@@ -92,7 +92,7 @@ router.get('/mid/:combinedParams', async (req, res) => {
       vdnum: splitParams[2]
     }
     let user = {
-      name: "Sammie Sammie",
+      name: "Sammie",
       email: "sammie@gmail.com"
   }
     res.render('stream-mid', {
