@@ -41,7 +41,7 @@ app.use(
    );
 
 // Passport Config
-//require('./config/passport')(passport);
+require('./config/passport')(passport);
 
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
