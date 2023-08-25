@@ -22,14 +22,13 @@ let User =  require('../models/User');
 let baseDir = path.join(__dirname,'/../');
 
 //ROUTES
-router.get('/', (req, res) => {
+router.get('/abs', (req, res) => {
  res.send("Wlecome to HighScore root api")
 });
 
 
 
-router.get('/ab', (req, res) => {
- 
+router.get('/', (req, res) => {
     res.render('welcome', {a : 7000});
 });
 
