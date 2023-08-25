@@ -58,9 +58,10 @@
 
 <script>
 console.log("BEGUN EXECUTION OF SCRIPT")
-  let rP = "<%= payload.p %>"
-  let uP = "<%= payload.uParam %>"
-  let n = Number("<%= payload.vdNumber %>");
+//  let rP = "<%= payload.p %>"
+//  let uP = "<%= payload.uParam %>"
+//  let n = Number("<%= payload.vdNumber %>");
+let n = 3
 function getRandomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -85,9 +86,6 @@ console.log("The value of n times is " + n + " and url payload is " + uP)
   return randomNumber;
 }
 
-function oPener() {
-
-}}
 randomizer();
 </script>
     <!-- Favicon -->
