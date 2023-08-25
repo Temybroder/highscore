@@ -63,12 +63,24 @@ let mid = ul[1];
 let pmid = mid.split(",");
 let mediaUrl = pmid[0].toString();
 let snum = Number(pmid[1]);
-function getRandomInteger(min, max) {
+function generateRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-function looper () {
+
+function callCalcAfterRandomDelay(i) {
+  const minDelay = 1; // Minimum delay in minutes
+  const maxDelay = 2; // Maximum delay in minutes
+
+  const randomDelay = generateRandomNumber(minDelay, maxDelay);
+  const delayInMilliseconds = randomDelay * 60 * 1000 * i; // Convert minutes to milliseconds
+
+  setTimeout(function () {
+  window.open(`https://hsc.onrender.com/stream/${mediaUrl}`, "_blank")
+}, delayInMilliseconds);
+}
+function looper (){
 for (let i=0; i< snum; i++){
-window.open(`https://hsc.onrender.com/stream/${mediaUrl}`, "_blank") 
+    callCalcAfterRandomDelay(i)
 }}
 looper()
 
