@@ -57,13 +57,18 @@
     </script>
 
 <script>
-var url = window.location.href;
-console.log("Current url is " + url)
+let url = window.location.href;
+let ul = url.split("=")
+let mid = ul[1];
+let pmid = mid.split(",");
+let mediaUrl = pmid[0].toString();
+let snum = Number(pmid[1]);
+console.log("Outside the loop, Params here are " + mediaUrl + " and " + snum)
 function getRandomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 function looper () {
-console.log("Outside the loop")
+console.log("RIght before the loop")
  let np = 3
  for (let i=0; i< np; i++){
 console.log("Yaya! Now inside the loop")
