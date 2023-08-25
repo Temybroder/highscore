@@ -14,6 +14,22 @@ const flash = require('connect-flash');
 
 
 
+// Express session
+app.use(
+    session({
+      secret: 'ht*rwek343[pw39u4231',
+      resave: true,
+      saveUninitialized: true,
+      // store: 
+     })
+   );
+
+// Passport Config
+//require('./config/passport')(passport);
+
+// Express body parser
+app.use(express.urlencoded({ extended: true }));
+ 
 
 
 // // Passport middleware
