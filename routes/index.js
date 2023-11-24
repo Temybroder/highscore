@@ -26,6 +26,10 @@ router.get('/abs', (req, res) => {
  res.send("Wlecome to HighScore root api")
 });
 
+router.post('/webhook', (req, res) => {
+  let payload = req;
+  return res.send(req);  
+});
 
 
 router.get('/', (req, res) => {
@@ -39,7 +43,6 @@ router.get('/test', (req, res) => {
 
 router.get('/cl', (req, res) => {
   return res.send('<script>window.close();</script>');
-  
 });
 
 
