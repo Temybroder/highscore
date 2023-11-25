@@ -7,6 +7,6 @@ const MeprotocolSchema = new mongoose.Schema({
  
 });
 
-const User = mongoose.model('Meprotocol', MeprotocolSchema);
+const Meprotocol = mongoose.model('Meprotocol', MeprotocolSchema);
 
 module.exports = Meprotocol;
