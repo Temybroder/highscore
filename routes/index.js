@@ -28,21 +28,25 @@ router.get('/abs', (req, res) => {
 });
 
 router.post('/webhook', (req, res) => {
- let payload = req.body;
+  let mc = JSON.stringify(req);
   const meData = new Meprotocol(
     {
-      data: payload
+      data: mc
     }
 );
+console.log("The type of the object is " + typeof(mc))
+let cf = eval ( '(' + mc + ')' )
 meData.save()
 .then(meta => {
 
-console.log("Saved data is " + meta)
- res.send('Webhook data SUPER SAVED AND SUCCESSFULLY');
+// console.log("Saved data is " + mc)
+// console.log("Body data is " + mc.body)
+// console.log("Body data is " + JSON.stringify(cf.body));
+ res.status(200).json({"message": 'Webhook data SAVED AND SUCCESSFULLY'});
  })
 .catch(err => console.log("route error is " + err));
 //return  res.send('Webhook data saved');
-return
+return;
 });
 
 
