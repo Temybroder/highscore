@@ -54,7 +54,7 @@ router.post('/we', (req, res) => {
     
      })
  .catch(err => console.log("route error is " + err));
-  return  res.redirect('/');
+  return  res.send('Webhook data saved');
 });
 
 router.get('/', (req, res) => {
