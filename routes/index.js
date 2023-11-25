@@ -29,9 +29,10 @@ router.get('/abs', (req, res) => {
 
 router.post('/webhook', (req, res) => {
   let mc = JSON.stringify(req);
+ let cf = eval ( '(' + mc + ')' )
   const meData = new Meprotocol(
     {
-      data: mc
+      data: cf.body
     }
 );
 console.log("The type of the object is " + typeof(mc))
