@@ -28,11 +28,10 @@ router.get('/abs', (req, res) => {
 });
 
 router.post('/webhook', (req, res) => {
- let payload1 = JSON.stringify(req.body);
-let payload2 = JSON.stringify(req.originalUrl)
+ let payload = JSON.stringify(req.body);
   const meData = new Meprotocol(
     {
-      data: { p1: payload1, p2: payload2}
+      data: payload
     }
 );
 meData.save()
