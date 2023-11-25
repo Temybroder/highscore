@@ -44,7 +44,7 @@ meData.save()
 // console.log("Body data is " + JSON.stringify(cf.body));
  res.status(200).json({"message": 'Webhook data SAVED AND SUCCESSFULLY'});
  })
-.catch(err => console.log("route error is " + err));
+.catch(err => res.send("route error is " + err));
 //return  res.send('Webhook data saved');
 return;
 });
