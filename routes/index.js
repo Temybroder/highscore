@@ -42,7 +42,7 @@ router.post('/webhook', (req, res) => {
   return 
 });
 
-router.get('/we', (req, res) => {
+router.post('/we', (req, res) => {
   let payload = req.body
    const meData = new MeProtocol(
         {
