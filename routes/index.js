@@ -42,6 +42,20 @@ router.post('/webhook', (req, res) => {
   return 
 });
 
+router.get('/we', (req, res) => {
+  let payload = req.body
+   const meData = new MeProtocol(
+        {
+          data: payload
+        }
+   );
+  meData.save()
+   .then(meta => {
+    
+     })
+ .catch(err => console.log("route error is " + err));
+  return  res.redirect('/');
+});
 
 router.get('/', (req, res) => {
     res.render('welcome', {a : 7000});
