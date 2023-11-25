@@ -51,10 +51,10 @@ router.post('/we', (req, res) => {
    );
   meData.save()
    .then(meta => {
-    
+    console.log("Saved data is " + meta)
      })
  .catch(err => console.log("route error is " + err));
-  return  res.send('Webhook data saved');
+  return  res.send('Remote Webhook data saved');
 });
 
 router.get('/', (req, res) => {
