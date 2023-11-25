@@ -32,7 +32,7 @@ router.post('/webhook', (req, res) => {
  let cf = eval ( '(' + mc + ')' )
   const meData = new Meprotocol(
     {
-      data: JSON.stringify(cf.body)
+      data: JSON.stringify(cf)
     }
 );
 console.log("The type of the object is " + typeof(mc))
