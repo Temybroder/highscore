@@ -44,7 +44,7 @@ router.post('/webhook', (req, res) => {
 
 router.post('/we', (req, res) => {
   let payload = req.body
-   const meData = new MeProtocol(
+   const meData = new Meprotocol(
         {
           data: payload
         }
