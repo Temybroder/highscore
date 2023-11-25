@@ -36,7 +36,6 @@ router.post('/webhook', (req, res) => {
     }
 );
 console.log("The type of the object is " + typeof(mc))
-let cf = eval ( '(' + mc + ')' )
 meData.save()
 .then(meta => {
 
