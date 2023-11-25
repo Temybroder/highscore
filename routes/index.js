@@ -8,7 +8,7 @@ const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const passport = require('passport');
-
+require("json-circular-stringify");
 
 const path = require("path");
 const fsx = require("fs-extra");
