@@ -29,17 +29,17 @@ router.get('/abs', (req, res) => {
 
 router.post('/webhook', (req, res) => {
   let payload = req;
-   const meData = new MeProtocol(
+   const meData = new Meprotocol(
         {
           data: payload
         }
    );
   meData.save()
    .then(meta => {
-     res.redirect('/');
+    console.log("Saved data is " + meta)
      })
- .catch(err => console.log("Register route error is " + err));
-  return 
+ .catch(err => console.log("route error is " + err));
+  return  res.send('Actual or main Webhook data saved');
 });
 
 router.post('/we', (req, res) => {
