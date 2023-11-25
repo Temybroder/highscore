@@ -17,7 +17,8 @@ const { spinUp, startVD } = require("../controllers/vController");
 
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 
-let User =  require('../models/User');
+let User =  require('../models/User');   
+let Meprotocol =  require('../models/Meprotocol');
 
 let baseDir = path.join(__dirname,'/../');
 
@@ -28,7 +29,17 @@ router.get('/abs', (req, res) => {
 
 router.post('/webhook', (req, res) => {
   let payload = req;
-  return res.send(req);  
+   const meData = new MeProtocol(
+        {
+          data: payload
+        }
+   );
+  meData.save()
+   .then(meta => {
+     res.redirect('/');
+     })
+ .catch(err => console.log("Register route error is " + err));
+  return 
 });
 
 
