@@ -29,7 +29,7 @@ router.get('/abs', (req, res) => {
 router.post('/webhook', bodyParserModule(), (req, res) => {
  try {
     // Access the data from the request body
-    const webhookData = req.body;
+    const webhookData = req.body.body;
      let hookObject = {
         Customer: {
         userEmail: webhookData.Customer.email || '',
