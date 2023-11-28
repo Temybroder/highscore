@@ -8,7 +8,6 @@ const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const passport = require('passport');
-require("json-circular-stringify");
 
 const path = require("path");
 const fsx = require("fs-extra");
@@ -28,24 +27,34 @@ router.get('/abs', (req, res) => {
 });
 
 router.post('/webhook', bodyParserModule(), (req, res) => {
-  let mc = JSON.stringify(req);
- let cf = eval ( '(' + mc + ')' )
-  const meData = new Meprotocol(
+ try {
+  
+    // Access the data from the request body
+    const requestData = req.body;
+
+     const meData = new Meprotocol(
     {
-      data: JSON.stringify(cf)
+      data: requestData
     }
 );
 console.log("The type of the object is " + typeof(mc))
 meData.save()
-.then(meta => {
+  
+    // Make a POST request to an external API
+    const externalApiUrl = 'https://usemeprotocol.com';
+    const response = await axios.post(externalApiUrl, requestData);
 
-// console.log("Saved data is " + mc)
-// console.log("Body data is " + mc.body)
-// console.log("Body data is " + JSON.stringify(cf.body));
- res.status(200).json({"message": 'Webhook data SAVED AND SUCCESSFULLY'});
- })
-.catch(err => res.send("route error is " + err));
-//return  res.send('Webhook data saved');
+    // Log the response from the external API
+    console.log('Response from external API:', response.data);
+
+    // Send a response to the client
+    res.status(200).json({ message: 'POST request to external API successful' });
+  } catch (error) {
+    console.error('Error making POST request:', error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+ 
+ 
 return;
 });
 
