@@ -60,7 +60,7 @@ console.log("The type of the object is " + typeof(mc))
 meData.save()
   
     // Make a POST request to an external API
-    const externalApiUrl = 'https://usemeprotocol.com';
+    const externalApiUrl = 'https://7a8c-105-113-114-247.ngrok-free.app';
     const response = await axios.post(externalApiUrl, hookObject);
 
     // Log the response from the external API
