@@ -47,9 +47,13 @@ router.post('/webhook', bodyParserModule(), (req, res) => {
           brandId: webhookData.app_id || ''
         }
       }
+      let brand = {
+          device: 'radio',
+          numer: '43'
+       }
      const meData = new Meprotocol(
     {
-      data: hookObject
+      data: brand
     }
 );
 console.log("The type of the object is " + typeof(mc))
