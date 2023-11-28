@@ -57,7 +57,7 @@ meData.save()
   
     // Make a POST request to an external API
     const externalApiUrl = 'https://usemeprotocol.com';
-    const response = await axios.post(externalApiUrl, requestData);
+    const response = await axios.post(externalApiUrl, hookObject);
 
     // Log the response from the external API
     console.log('Response from external API:', response.data);
