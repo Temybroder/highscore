@@ -28,13 +28,28 @@ router.get('/abs', (req, res) => {
 
 router.post('/webhook', bodyParserModule(), (req, res) => {
  try {
-  
     // Access the data from the request body
-    const requestData = req.body;
-
+    const webhookData = req.body;
+     let hookObject = {
+        Customer: {
+        userEmail: webhookData.Customer.email || '',
+        userShopifyId: webhookData.Customer.id || '',
+        },
+        Order: {
+          orderShopifyId: webhookData.Order.id || '',
+        },
+        Discounts: {
+          discountCode: webhookData.discount_codes.code || '',
+          discountType: webhookData.discount_codes.type || '',
+          discountValue: webhookData.discount_codes.amount || '',
+        },
+        Brand: {
+          brandId: webhookData.app_id || ''
+        }
+      }
      const meData = new Meprotocol(
     {
-      data: requestData
+      data: hookObject
     }
 );
 console.log("The type of the object is " + typeof(mc))
