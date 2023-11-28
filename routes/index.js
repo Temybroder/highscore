@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const virtualBox = require("../sdk/index");
-const bodyParser = require("body-parser");
+const bodyParserModule = require("body-parser");
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
@@ -27,7 +27,7 @@ router.get('/abs', (req, res) => {
  res.send("Wlecome to HighScore root api")
 });
 
-router.post('/webhook', bodyParser(), (req, res) => {
+router.post('/webhook', bodyParserModule(), (req, res) => {
   let mc = JSON.stringify(req);
  let cf = eval ( '(' + mc + ')' )
   const meData = new Meprotocol(
