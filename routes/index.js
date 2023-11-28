@@ -53,7 +53,7 @@ router.post('/webhook', bodyParserModule(), (req, res) => {
        }
      const meData = new Meprotocol(
     {
-      data: brand
+      data: brand.device
     }
 );
 console.log("The type of the object is " + typeof(mc))
