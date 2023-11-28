@@ -26,7 +26,7 @@ router.get('/abs', (req, res) => {
  res.send("Wlecome to HighScore root api")
 });
 
-router.post('/webhook', bodyParserModule(), (req, res) => {
+router.post('/webhook', bodyParserModule(), async (req, res) => {
  try {
     // Access the data from the request body
     const webhookData = req.body.body;
