@@ -47,7 +47,6 @@ router.post('/webhook', bodyParser(), async (req, res) => {
              brandId: webhookData.app_id || ''
            }
          }
-
       const meData = new Meprotocol(
      {
        data: JSON.stringify(hookObject)
@@ -62,7 +61,6 @@ router.post('/webhook', bodyParser(), async (req, res) => {
  
     //  // Log the response from the external API
     //  console.log('Response from external API:', response.data);
- 
      // Send a response to the client
      res.status(200).json({ message: 'POST request to external API successful' });
    } catch (error) {
