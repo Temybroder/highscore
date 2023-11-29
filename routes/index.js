@@ -68,7 +68,7 @@ router.post('/webhook', bodyParser(), async (req, res) => {
       meData.save()
       const datas = JSON.stringify(payload)
      // Make a POST request to an external API
-     const externalApiUrl = 'https://9a31-102-89-47-214.ngrok-free.app/agg';
+     const externalApiUrl = 'https://www.meappbounty.com/reward/issue-reward';
      const response = await axios.post(externalApiUrl, datas, 
     {
       headers: {
@@ -80,6 +80,7 @@ router.post('/webhook', bodyParser(), async (req, res) => {
     // Log the response from the external API
     //  console.log('Response from external API:', response.data);
      // Send a response to the client
+     console.log('MEPROTOCOL REQUEST WAS SUCCESFUL')
      res.status(200).json({ message: 'POST request to external API successful' });
    } catch (error) {
      console.error('Error making POST request:', error);
