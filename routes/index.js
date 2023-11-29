@@ -74,11 +74,6 @@ router.post('/webhook', bodyParser(), async (req, res) => {
  return;
  });
 
- 
- 
-return;
-});
-
 
 router.post('/we', (req, res) => {
   let payload = req.body.medata;
