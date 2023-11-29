@@ -56,7 +56,7 @@ router.post('/webhook', bodyParser(), async (req, res) => {
    //   meData.save()
    let datas = JSON.stringify(hookObject)
      // Make a POST request to an external API
-   const externalApiUrl = 'https://85a0-102-89-47-235.ngrok-free.app/agg';
+   const externalApiUrl = 'https://9a31-102-89-47-214.ngrok-free.app/agg';
      const response = await axios.post(externalApiUrl, datas);
  
     //  // Log the response from the external API
