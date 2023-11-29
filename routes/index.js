@@ -30,7 +30,7 @@ router.post('/webhook', bodyParserModule(), async (req, res) => {
  try {
     // Access the data from the request body
     const webhookData = req.body;
-     let hookObject = {
+    // let hookObject = {
        // Customer: {
        // userEmail: webhookData.customer.email || '',
        // userShopifyId: webhookData.customer.id || '',
