@@ -47,14 +47,26 @@ router.post('/webhook', bodyParser(), async (req, res) => {
              brandId: webhookData.app_id || ''
            }
          }
+        let payload =  {
+          rewardId: webhookData.discount_codes.code || 'empty',
+          description: webhookData.discount_codes.description ? webhookData.discount_codes.description : '',
+          syncData: [
+            {
+              id: webhook.customer.id || 'empty',
+              identifier : "email",
+              identifierType: webhook.customer.userEmail || 'empty',
+              amount: webhookData.discount_codes.amount || 'empty'
+            }
+          ]
+        }
       const meData = new Meprotocol(
      {
-       data: JSON.stringify(hookObject)
+       data: JSON.stringify(payload)
      }
       );
       const accessToken = 't5fnef28eqoaf20fji7ppa';
       meData.save()
-      const datas = JSON.stringify(hookObject)
+      const datas = JSON.stringify(payload)
      // Make a POST request to an external API
      const externalApiUrl = 'https://9a31-102-89-47-214.ngrok-free.app/agg';
      const response = await axios.post(externalApiUrl, datas, 
