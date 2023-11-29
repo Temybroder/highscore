@@ -27,33 +27,33 @@ router.get('/abs', (req, res) => {
 });
 
 router.post('/webhook', bodyParser(), async (req, res) => {
-  try {
+ try {
      // Access the data from the request body
      const webhookData = req.body;
-      // let hookObject = {
-      //    Customer: {
-      //    userEmail: webhookData.customer.email || '',
-      //    userShopifyId: webhookData.customer.id || '',
-      //    },
-      //    Order: {
-      //      orderShopifyId: webhookData.id || '',
-      //    },
+        let hookObject = {
+           Customer: {
+           userEmail: webhookData.customer.email || '',
+           userShopifyId: webhookData.customer.id || '',
+           },
+           Order: {
+             orderShopifyId: webhookData.id || '',
+           },
       //    Discounts: {
       //      discountCode: webhookData.discount_codes.code || '',
       //      discountType: webhookData.discount_codes.type || '',
       //      discountValue: webhookData.discount_codes.amount || '',
       //    },
-      //    Brand: {
-      //      brandId: webhookData.app_id || ''
-      //    }
-      //  }
+           Brand: {
+             brandId: webhookData.app_id || ''
+           }
+         }
 
       const meData = new Meprotocol(
      {
-       data: JSON.stringify(webhookData.order)
+       data: JSON.stringify(hookObject)
      }
       );
-      console.log("The type of the object is " + JSON.stringify(webhookData.discount_codes))
+      console.log("The type of the object is " + JSON.stringify(hookObject))
       meData.save()
    
      // Make a POST request to an external API
