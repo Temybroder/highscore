@@ -54,7 +54,7 @@ router.post('/webhook', bodyParser(), async (req, res) => {
             {
               id: webhook.customer.id || 'empty',
               identifier : "email",
-              identifierType: webhook.customer.userEmail || 'empty',
+              identifierType: webhookData.customer.userEmail || 'empty',
               amount: webhookData.discount_codes.amount || 'empty'
             }
           ]
