@@ -26,52 +26,54 @@ router.get('/abs', (req, res) => {
  res.send("Wlecome to HighScore root api")
 });
 
-router.post('/webhook', bodyParserModule(), async (req, res) => {
- try {
-    // Access the data from the request body
-    const webhookData = req.body;
-    // let hookObject = {
-       // Customer: {
-       // userEmail: webhookData.customer.email || '',
-       // userShopifyId: webhookData.customer.id || '',
-       // },
-       // Order: {
-       //   orderShopifyId: webhookData.order.id || '',
-       // },
-       // Discounts: {
-        //  discountCode: webhookData.discount_codes.code || '',
-         // discountType: webhookData.discount_codes.type || '',
-         // discountValue: webhookData.discount_codes.amount || '',
-       // },
-       // Brand: {
-        //  brandId: webhookData.app_id || ''
-       // }
-     // }
-      let brand = {
-          device: 'radio',
-          numer: '43'
-       }
-     const meData = new Meprotocol(
-    {
-      data: brand.device
-    }
-);
-console.log("The type of the object is " + typeof(mc))
-meData.save()
+router.post('/webhook', bodyParser(), async (req, res) => {
+  try {
+     // Access the data from the request body
+     const webhookData = req.body;
+      // let hookObject = {
+      //    Customer: {
+      //    userEmail: webhookData.customer.email || '',
+      //    userShopifyId: webhookData.customer.id || '',
+      //    },
+      //    Order: {
+      //      orderShopifyId: webhookData.id || '',
+      //    },
+      //    Discounts: {
+      //      discountCode: webhookData.discount_codes.code || '',
+      //      discountType: webhookData.discount_codes.type || '',
+      //      discountValue: webhookData.discount_codes.amount || '',
+      //    },
+      //    Brand: {
+      //      brandId: webhookData.app_id || ''
+      //    }
+      //  }
+
+      const meData = new Meprotocol(
+     {
+       data: JSON.stringify(webhookData.order)
+     }
+      );
+      console.log("The type of the object is " + JSON.stringify(webhookData.discount_codes))
+      meData.save()
+   
+     // Make a POST request to an external API
+    //  const externalApiUrl = 'https://85a0-102-89-47-235.ngrok-free.app/webhook';
+    //  const response = await axios.post(externalApiUrl, brand.device);
+ 
+    //  // Log the response from the external API
+    //  console.log('Response from external API:', response.data);
+ 
+     // Send a response to the client
+     res.status(200).json({ message: 'POST request to external API successful' });
+   } catch (error) {
+     console.error('Error making POST request:', error);
+     res.status(500).json({ error: 'Internal Server Error' });
+   }
   
-    // Make a POST request to an external API
-    const externalApiUrl = 'https://85a0-102-89-47-235.ngrok-free.app/webhook';
-    const response = await axios.post(externalApiUrl, brand);
+  
+ return;
+ });
 
-    // Log the response from the external API
-    console.log('Response from external API:', response.data);
-
-    // Send a response to the client
-    res.status(200).json({ message: 'POST request to external API successful' });
-  } catch (error) {
-    console.error('Error making POST request:', error.message);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
  
  
 return;
