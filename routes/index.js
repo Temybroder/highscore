@@ -53,12 +53,12 @@ router.post('/webhook', bodyParser(), async (req, res) => {
        data: JSON.stringify(hookObject)
      }
       );
-      console.log("The type of the object is " + JSON.stringify(hookObject))
-      meData.save()
-   
+   //   console.log("The type of the object is " + JSON.stringify(hookObject))
+   //   meData.save()
+   let datas = JSON.stringify(hookObject
      // Make a POST request to an external API
-    //  const externalApiUrl = 'https://85a0-102-89-47-235.ngrok-free.app/webhook';
-    //  const response = await axios.post(externalApiUrl, brand.device);
+   const externalApiUrl = 'https://85a0-102-89-47-235.ngrok-free.app/webhook';
+     const response = await axios.post(externalApiUrl, datas);
  
     //  // Log the response from the external API
     //  console.log('Response from external API:', response.data);
