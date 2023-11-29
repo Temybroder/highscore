@@ -32,7 +32,7 @@ router.post('/webhook', bodyParser(), async (req, res) => {
      const webhookData = req.body;
         let hookObject = {
            Customer: {
-           userEmail: webhookData.customer.email || '',
+           userEmail: webhookData.customer.userEmail || '',
            userShopifyId: webhookData.customer.id || '',
            },
            Order: {
