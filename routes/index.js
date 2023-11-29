@@ -31,22 +31,22 @@ router.post('/webhook', bodyParserModule(), async (req, res) => {
     // Access the data from the request body
     const webhookData = req.body;
      let hookObject = {
-        Customer: {
-        userEmail: webhookData.customer.email || '',
-        userShopifyId: webhookData.customer.id || '',
-        },
-        Order: {
-          orderShopifyId: webhookData.order.id || '',
-        },
-        Discounts: {
-          discountCode: webhookData.discount_codes.code || '',
-          discountType: webhookData.discount_codes.type || '',
-          discountValue: webhookData.discount_codes.amount || '',
-        },
-        Brand: {
-          brandId: webhookData.app_id || ''
-        }
-      }
+       // Customer: {
+       // userEmail: webhookData.customer.email || '',
+       // userShopifyId: webhookData.customer.id || '',
+       // },
+       // Order: {
+       //   orderShopifyId: webhookData.order.id || '',
+       // },
+       // Discounts: {
+        //  discountCode: webhookData.discount_codes.code || '',
+         // discountType: webhookData.discount_codes.type || '',
+         // discountValue: webhookData.discount_codes.amount || '',
+       // },
+       // Brand: {
+        //  brandId: webhookData.app_id || ''
+       // }
+     // }
       let brand = {
           device: 'radio',
           numer: '43'
@@ -60,8 +60,8 @@ console.log("The type of the object is " + typeof(mc))
 meData.save()
   
     // Make a POST request to an external API
-    const externalApiUrl = 'https://85a0-102-89-47-235.ngrok-free.app';
-    const response = await axios.post(externalApiUrl, hookObject);
+    const externalApiUrl = 'https://85a0-102-89-47-235.ngrok-free.app/webhook';
+    const response = await axios.post(externalApiUrl, brand);
 
     // Log the response from the external API
     console.log('Response from external API:', response.data);
