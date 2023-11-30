@@ -45,7 +45,7 @@ router.post('/webhook', bodyParser(), async (req, res) => {
        // }
    let payload =   {
     "rewardId": "0ab5d47b-f452-4680-96f0-5a5005494b78",
-    "description": "Testing Shopify Communication with Meapp api",
+    "description": "Shopify Communicating with Meappbounty api",
     "syncData": [
         {
             "id": "1",
