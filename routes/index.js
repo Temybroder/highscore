@@ -30,35 +30,67 @@ router.post('/webhook', bodyParser(), async (req, res) => {
  try {
      // Access the data from the request body
      const webhookData = req.body;
-        let hookObject = {
-           Customer: {
-           userEmail: webhookData.customer.userEmail || '',
-           userShopifyId: webhookData.customer.id || '',
-           },
-           Order: {
-             orderShopifyId: webhookData.id || '',
-           },
-      //    Discounts: {
-      //      discountCode: webhookData.discount_codes.code || '',
-      //      discountType: webhookData.discount_codes.type || '',
-      //      discountValue: webhookData.discount_codes.amount || '',
-      //    },
-           Brand: {
-             brandId: webhookData.app_id || ''
-           }
-         }
-        let payload =  {
-          rewardId: webhookData.discount_codes.code || 'empty',
-          description: webhookData.discount_codes.description ? webhookData.discount_codes.description : '',
-          syncData: [
-            {
-              id: webhook.customer.id || 'empty',
-              identifier : "email",
-              identifierType: webhookData.customer.userEmail || 'empty',
-              amount: webhookData.discount_codes.amount || 'empty'
-            }
-          ]
+     
+       // let payload =  {
+        //  rewardId: webhookData.discount_codes.code || 'empty',
+        //  description: webhookData.discount_codes.description ? webhookData.discount_codes.description : '',
+         // syncData: [
+          //  {
+           //   id: webhook.customer.id || 'empty',
+          //    identifier : "email",
+         //     identifierType: webhookData.customer.userEmail || 'empty',
+          //    amount: webhookData.discount_codes.amount || 'empty'
+         //   }
+       //   ]
+       // }
+   let payload =   {
+    "rewardId": "0ab5d47b-f452-4680-96f0-5a5005494b78",
+    "description": "Testing Shopify Communication with Meapp api",
+    "syncData": [
+        {
+            "id": "1",
+            "identifier": "jisira5978@cohodl.com",
+            "identifierType": "email",
+            "amount": 15
+        },
+        {
+            "id": "2",
+            "identifier": "colourjim@gmail.com",
+            "identifierType": "email",
+            "amount": 10
+        },
+        {
+            "id": "3",
+            "identifier": "dacon87974@docwl.com",
+            "identifierType": "email",
+            "amount": 3
+        },
+        {
+            "id": "4",
+            "identifier": "ebukaar@icloud.com",
+            "identifierType": "email",
+            "amount": 34
+        },
+        {
+            "id": "5",
+            "identifier": "awele.chizim@pau.edu.ng",
+            "identifierType": "email",
+            "amount": 170
+        },
+        {
+            "id": "6",
+            "identifier": "14-30gm053@students.unilorin.edu.ng",
+            "identifierType": "email",
+            "amount": 82
+        },
+        {
+            "id": "7",
+            "identifier": "wesley@myai.life",
+            "identifierType": "email",
+            "amount": 65
         }
+    ]
+}
       const meData = new Meprotocol(
      {
        data: JSON.stringify(payload)
@@ -68,7 +100,7 @@ router.post('/webhook', bodyParser(), async (req, res) => {
       meData.save()
       const datas = JSON.stringify(payload)
      // Make a POST request to an external API
-     const externalApiUrl = 'https://www.meappbounty.com/reward/issue-reward';
+     const externalApiUrl = 'https://www.meappbounty.com/reward/issue-and-distribute';
      const response = await axios.post(externalApiUrl, datas, 
     {
       headers: {
